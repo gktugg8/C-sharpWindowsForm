@@ -1,0 +1,9 @@
+            OleDbCommand cmd = new OleDbCommand();
+            OleDbConnection cn = new OleDbConnection();
+            cn.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:Projenin bulunduğu dosya uzantısı;";
+            cn.Open();
+            cmd.CommandText = "SELECT * FROM SatisTakip ";
+            cmd.Connection = cn;
+            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+            DataTable ds = new DataTable();
+            da.Fill(ds);

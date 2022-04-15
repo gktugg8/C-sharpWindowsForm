@@ -1,0 +1,10 @@
+            OleDbConnection cn = new OleDbConnection();
+            cn.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:Projenin bulunduğu dosya uzantısı;";
+            cn.Open();
+            OleDbCommand cmd = new OleDbCommand("DELETE FROM Musteri WHERE ID=@id ", cn);
+            cmd.Parameters.AddWithValue("@id", dgvSatisTakip.CurrentRow.Cells[0].Value);
+            cmd.ExecuteNonQuery();
+            cn.Close();
+            SatisListele();
+
+            MessageBox.Show("Silme İşlemi Başarılı");

@@ -1,6 +1,6 @@
             OleDbCommand cmd = new OleDbCommand();
             OleDbConnection cn = new OleDbConnection();
-            cn.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:File extension of the project;";
+            cn.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:Projenin bulunduğu dosyanın uzantısı;";
             cn.Open();
             cmd.Parameters.AddWithValue("@Ad", txtSatisAd.Text);
             cmd.Parameters.AddWithValue("@Soyad", txtSatisSoyad.Text);

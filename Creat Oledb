@@ -1,0 +1,15 @@
+            OleDbCommand cmd = new OleDbCommand();
+            OleDbConnection cn = new OleDbConnection();
+            cn.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:File extension of the project;";
+            cn.Open();
+            cmd.Parameters.AddWithValue("@Ad", txtSatisAd.Text);
+            cmd.Parameters.AddWithValue("@Soyad", txtSatisSoyad.Text);
+            cmd.Parameters.AddWithValue("@Adres", txtSatisAdres.Text);
+            cmd.Parameters.AddWithValue("@AlicininAdSoyad", txtSatisAlıcıAdSoyad.Text);
+
+            cmd.Parameters.AddWithValue("@Aciklama", rtbSatisAdres.Text);
+
+            cmd.Connection = cn;
+            cmd.CommandText = "INSERT INTO SatisTakip (Ad,Soyad,Adres,SiparisDurum,AlicininAdSoyad,SatisTarihi,OdemeTuru,Tutar,GuncellenmeTarihi,Aciklama) VALUES(@Ad,@Soyad,@Adres,@SiparisDurum,@AlicininAdSoyad,@SatisTarihi,@OdemeTuru,@Tutar,@GuncellenmeTarihi,@Aciklama)";
+            cmd.ExecuteNonQuery();
+            cn.Close();
